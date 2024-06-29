@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư viện ảnh</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .gallery-container {
+            padding: 20px;
+        }
+        .gallery {
+            border: 2px solid transparent;
+            overflow: hidden;
+            transition: border 0.3s;
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
+        .gallery:hover {
+            border: 2px solid #777;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+        .desc {
+            padding: 15px;
+            text-align: center;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        .responsive {
+            padding: 0 6px;
+            float: left;
+            width: 25%;
+            margin-bottom: 20px;
+        }
+        @media only screen and (max-width: 700px) {
+            .responsive {
+                width: 50%;
+                margin: 6px 0;
+            }
+        }
+        @media only screen and (max-width: 500px) {
+            .responsive {
+                width: 100%;
+            }
+        }
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .selected {
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Thư viện ảnh</h1>
+<h4>Building Website with HTML & CSS</h4>
+
+<div class="gallery-container">
+    <div class="responsive">
+        <div class="gallery">
+            <img src="https://wallpapersmug.com/download/800x600/88d172/lake-reflections-sunset-nature.jpg" alt="Image 1" onclick="selectImage(this)">
+            <div class="desc">Beautiful Water Scene</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <img src="https://images.wallpaperscraft.com/image/single/forest_trees_grass_285518_800x600.jpg" alt="Image 2" onclick="selectImage(this)">
+            <div class="desc">Lush Green Forest</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <img src="https://images.wallpaperscraft.com/image/single/sky_sunset_clouds_170984_800x600.jpg" alt="Image 3" onclick="selectImage(this)">
+            <div class="desc">Stunning Sky</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <img src="https://wallpapersmug.com/download/800x600/c7a7ad/mountain-top-glacier.jpg" alt="Image 4" onclick="selectImage(this)">
+            <div class="desc">Majestic Mountains</div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+</div>
+
+<script>
+    function selectImage(img) {
+        const selectedImages = document.querySelectorAll('.selected');
+        selectedImages.forEach(image => image.classList.remove('selected'));
+
+        img.classList.add('selected');
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        .sidebar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            height: 100%;
+            width: 220px;
+            padding-top: 20px;
+            border-right: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .main-content {
+            margin-left: 240px;
+            padding: 20px;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Menu Admin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="sidebar">
+    <ul class="list-group">
+        <li class="list-group-item active" onclick="showSection('product')">Product</li>
+        <li class="list-group-item" onclick="showSection('order')">Order</li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <div id="product" class="content-section active">
+        <h1>Product Management</h1>
+        <p>Manage your products here.</p>
+        <!-- Add thêm các sp -->
+    </div>
+    <div id="order" class="content-section">
+        <h1>Order Management</h1>
+        <p>Manage your orders here.</p>
+        <!-- Thêm chức năng order -->
+    </div>
+</div>
+
+<script>
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => section.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+
+        const menuItems = document.querySelectorAll('.sidebar .list-group-item');
+        menuItems.forEach(item => item.classList.remove('active'));
+        document.querySelector('.sidebar .list-group-item[onclick="showSection(\'' + sectionId + '\')"]').classList.add('active');
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
